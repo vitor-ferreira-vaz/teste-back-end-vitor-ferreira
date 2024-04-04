@@ -3,7 +3,7 @@
 
 Bem-vindo.
 
-Este é personalizado, usarei para avaliar tecnicamente todas as pessoas que estão participando do nosso processo seletivo para a vaga de desenvolvimento Back-End, lembrando que a aplicação de patterns como service e repository e processamento de filas asyncronas com horizon fazem diferença comente o seu código para facilitar a revisão o prazo de execução é até sexta as 15 horas, se tiver alguma duvida pergunte.
+Este é personalizado, usarei para avaliar tecnicamente todas as pessoas que estão participando do nosso processo seletivo para a vaga de desenvolvimento Back-End, lembrando que a aplicação de patterns como service e repository e processamento de filas asyncronas com horizon fazem diferença comente o seu código para facilitar a revisão o prazo de execução é de 3 dias corridos a partir do momento que o teste foi encaminhado para você, se tiver alguma duvida pergunte.
 
 ## TL;DR
 
