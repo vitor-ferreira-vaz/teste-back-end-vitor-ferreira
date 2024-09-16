@@ -9,7 +9,7 @@ Usarei esse teste para avaliar tecnicamente todas as pessoas que estão particip
 
 - Você deverá criar um CRUD através de uma API REST com Laravel;
 - Você deverá criar um comando artisan que se comunicará com uma outra API para importar em seu banco de dados;
-
+- Você deverá criar o front-end do CRUD (Criação, Leitura, Atualização e Deleção) no sistema de gerenciamento de biblioteca, siga as orientações abaixo. Você poderá escolher entre utilizar React ou Blade no front-end, junto com bibliotecas de estilização como Tailwind CSS ou Bootstrap.
 ## Começando
 
 **Faça um fork desse projeto para iniciar o desenvolvimento. PRs não serão aceitos.**
