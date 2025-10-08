@@ -29,7 +29,7 @@ Através da inteface o usuário deverá ser capaz de:
 - Editar produtos
 - Ter uma opção de migrar produtos bem como as categorias da API que será conectada (Requisito explicado logo abaixo).
 
-##### CRUD produtos
+#### CRUD produtos
 
 Aqui você deverá desenvolver as principais operações para o gerenciamento de um catálogo de produtos, sendo elas:
 
@@ -63,7 +63,7 @@ Os endpoints de criação e atualização devem seguir o seguinte formato de pay
 
 **Importante:** Tanto os endpoints de criação é atualização, deverão ter uma camada de validação dos campos.
 
-##### Buscas de produtos
+#### Buscas de produtos
 
 Para realizar a manutenção de um catálogo de produtos é necessário que o sistema tenha algumas buscas, sendo elas:
 
@@ -72,7 +72,7 @@ Para realizar a manutenção de um catálogo de produtos é necessário que o si
 - Busca de produtos com e sem imagem.
 - Buscar um produto pelo seu ID único.
 
-##### Importação de produtos de uma API externa
+#### Importação de produtos de uma API externa
 
 É necessário que o sistema seja capaz de importar produtos que estão em um outro serviço. Deverá ser criado um comando que buscará produtos nessa API e armazenará os resultados para a sua base de dados. 
 
