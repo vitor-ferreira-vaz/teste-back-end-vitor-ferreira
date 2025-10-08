@@ -22,7 +22,7 @@ Usarei esse teste para avaliar tecnicamente todas as pessoas que estão particip
 
 Através da inteface o usuário deverá ser capaz de:
 - Fazer login
-- Editar dados pessoais (Email, nome, telefone...)
+- Editar dados pessoais (Email, nome, telefone, imagem de perfil...)
 - Criar categorias
 - Editar categorias
 - Criar produtos
@@ -37,6 +37,8 @@ Aqui você deverá desenvolver as principais operações para o gerenciamento de
 - Atualização
 - Exclusão
 
+**O produto pode ter até 3 categorias.**
+
 O produto deve ter a seguinte estrutura:
 
 Campo       | Tipo      | Obrigatório   | Pode se repetir
@@ -45,7 +47,6 @@ id          | int       | true          | false
 name        | string    | true          | false        
 price       | float     | true          | true
 decription  | text      | true          | true
-category    | string    | true          | true
 image_url   | url       | false         | true
 
 Os endpoints de criação e atualização devem seguir o seguinte formato de payload:
