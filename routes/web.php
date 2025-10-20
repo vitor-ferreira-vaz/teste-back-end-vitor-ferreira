@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Route::get('/users/InsertUser', [\App\Http\Controllers\CadastroUsuarioController::class, 'Insert'])->name('insert')/*->middleware(StartSession::class)*/;
