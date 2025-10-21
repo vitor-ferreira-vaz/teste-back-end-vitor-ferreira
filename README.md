@@ -102,7 +102,7 @@ DB_DATABASE=seu_banco
 DB_USERNAME=seu_ususario_mysql
 DB_PASSWORD=sua_senha
  ```
-- executar o comando php artisan key:generate
+- executar o comando `php artisan key:generate`
 - `php artisa migrate`
 - e por `php artisan serve` para uso em desenvolvimento
 
