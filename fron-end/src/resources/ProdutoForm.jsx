@@ -1,16 +1,19 @@
 import {useNavigate, useParams} from "react-router-dom";
 import {useImmer} from "use-immer";
 import {ApiAxiosInstance, Methods} from "./AxiosRequest.jsx";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
+import {Context} from "./AuthContext.jsx";
 
 function ProdutoForm() {
-    const { produto_id} = useParams();
+    const {produto_id} = useParams();
     const navigate = useNavigate()
     const [form, setForm] = useImmer({
         name: '', price: '', description: '', image_url: '', categoria: 0,
     })
     const [categoria, setCategoria] = useImmer([{}])
     const [metodo, setMetodo] = useState('Insert')
+    const autenticated = useContext(Context);
+
     function onChangeFieldsImmer(e) { // Atualizando o obj de maneira usando Immer
         setForm(obj => {
             obj[e.target.id] = e.target.value;
@@ -74,21 +77,25 @@ function ProdutoForm() {
             <div className="row m-3">
                 <div className="col-md-6 p-1">
                     <label className="form-label">Nome</label>
-                    <input type="text" className="form-control" onChange={onChangeFieldsImmer} value={form.name} id="name" placeholder="..."/>
+                    <input type="text" className="form-control" onChange={onChangeFieldsImmer} value={form.name}
+                           id="name" placeholder="..."/>
                 </div>
                 <div className="col-md-6 p-1">
                     <label className="form-label">Preço</label>
-                    <input type="text" className="form-control" onChange={onChangeFieldsImmer} value={form.price} id="price" placeholder="..."/>
+                    <input type="text" className="form-control" onChange={onChangeFieldsImmer} value={form.price}
+                           id="price" placeholder="..."/>
                 </div>
 
                 <div className="col-md-12 p-1">
                     <label className="form-label">Descrição</label>
-                    <textarea className="form-control" placeholder="..." onChange={onChangeFieldsImmer} value={form.description} id="description"></textarea>
+                    <textarea className="form-control" placeholder="..." onChange={onChangeFieldsImmer}
+                              value={form.description} id="description"></textarea>
                 </div>
 
                 <div className="col-md-12 p-1">
                     <label className="form-label">Imagem (URL)</label>
-                    <input type="text" className="form-control" onChange={onChangeFieldsImmer} value={form.image_url} id="image_url" placeholder="..."/>
+                    <input type="text" className="form-control" onChange={onChangeFieldsImmer} value={form.image_url}
+                           id="image_url" placeholder="..."/>
                 </div>
 
 
@@ -103,7 +110,9 @@ function ProdutoForm() {
 
 
                 <div className="col-md-12 p-4 d-flex justify-content-end">
-                    <button className="btn btn-outline-success my-2 my-sm-0 m-1" id="btn_search" onClick={handleSubmit}>Salvar</button>
+                    <button className="btn btn-outline-success my-2 my-sm-0 m-1" id="btn_search"
+                            onClick={handleSubmit}>Salvar
+                    </button>
                 </div>
 
             </div>

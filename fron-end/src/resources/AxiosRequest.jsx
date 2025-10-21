@@ -27,12 +27,10 @@ export const Methods = {
 ApiAxiosInstance.interceptors.response.use(function (response) {
     if (response.config.url == "/api/users/Login") {
         // Inserir o o token no header
-        // ApiAxiosInstance.defaults.headers.common['Authorization'] = response.headers.getAuthorization();
-        // ApiAxiosInstance.defaults.headers.common['Authorization'] = response.data.token;
-        // ApiAxiosInstance.defaults.headers.common['id'] = response.data.id;
 
         // Adicionar o token ao local storage para caso a pagina serja recarregada
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('usuario_id', response.data.id);
     }
     return response;
 }, function (error) {

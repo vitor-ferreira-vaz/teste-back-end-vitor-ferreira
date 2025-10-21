@@ -21,7 +21,6 @@ function LoginUsuarioForm() {
         try {
             await ApiAxiosInstance[Methods['GET']]('/sanctum/csrf-cookie', {}).then(() => {
                 ApiAxiosInstance[Methods['POST']]('/api/users/Login', form)
-
                     .then(function () {
                         navigate('/')
                     })

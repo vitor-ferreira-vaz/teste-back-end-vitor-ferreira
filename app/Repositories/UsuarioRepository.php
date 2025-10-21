@@ -16,9 +16,12 @@ class UsuarioRepository implements UsuarioRepositoryInterface
         return User::all();
     }
 
-    public function find(int $id): User
+    public function find(int $id): JsonResponse
     {
-        return User::find($id);
+        return response()->json([
+            'success' => true,
+            'data' => User::find($id)
+        ]);
     }
 
     public function create(array $data): JsonResponse

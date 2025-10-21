@@ -39,27 +39,28 @@ const menuItems = [
 
 function Menu () {
     const auth = ApiAxiosInstance.defaults.headers.common['Authorization'];
-    const autenticated = useContext(Context);
-    // console.log(autenticated);
+    const {autenticated, handleLogout} = useContext(Context);
+
     let itens = menuItems.filter(item => item.guess === false && auth != null)
     const navigate = useNavigate()
-    async function handleLogout() {
 
-        try {
-            await ApiAxiosInstance[Methods['GET']]('/sanctum/csrf-cookie', {}).then(() => {
-                ApiAxiosInstance[Methods['POST']]('/api/users/Logout')
-                    .then(function () {
-                        localStorage.setItem('token', undefined);
-                        ApiAxiosInstance.defaults.headers.common['Authorization'] = undefined
-                        navigate('/LoginUsuarioForm')
-                    })
-            });
-
-        } catch (error) {
-            window.alert(error.message);
-            console.log(error);
-        }
-    }
+    // async function handleLogout() {
+    //
+    //     try {
+    //         await ApiAxiosInstance[Methods['GET']]('/sanctum/csrf-cookie', {}).then(() => {
+    //             ApiAxiosInstance[Methods['POST']]('/api/users/Logout')
+    //                 .then(function () {
+    //                     localStorage.setItem('token', undefined);
+    //                     ApiAxiosInstance.defaults.headers.common['Authorization'] = undefined
+    //                     navigate('/LoginUsuarioForm')
+    //                 })
+    //         });
+    //
+    //     } catch (error) {
+    //         window.alert(error.message);
+    //         console.log(error);
+    //     }
+    // }
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light p-3 rounded col-md-12">

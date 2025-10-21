@@ -22,8 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/users/teste', [UsuarioController::class, 'Insert']);
+
 Route::post('/users/InsertUser', [UsuarioController::class, 'Insert'])->name('insert');
+Route::post('/users/Find/{id?}', [UsuarioController::class, 'Find'])->name('find_user');
 Route::post('/users/Login', [AuthController::class, 'Login'])->name('login');
 Route::post('/users/CheckUser', [AuthController::class, 'CheckUser'])->middleware('auth:sanctum');
 Route::post('/users/Logout', [AuthController::class, 'Logout'])->middleware('auth:sanctum');

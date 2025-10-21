@@ -4,7 +4,6 @@ import ProdutoForm from "./ProdutoForm.jsx";
 import CategoriaForm from "./CategoriaForm.jsx";
 import LoginUsuarioForm from "./LoginUsuarioForm.jsx";
 import UsuarioForm from "./UsuarioForm.jsx";
-import {useContext} from "react";
 import {Context, Provider} from "./AuthContext";
 
 const DashboardPages = {

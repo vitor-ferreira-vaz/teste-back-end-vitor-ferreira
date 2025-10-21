@@ -1,19 +1,18 @@
 import {useContext, useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {ApiAxiosInstance, Methods} from "./AxiosRequest.jsx";
+import {Context} from "./AuthContext.jsx";
 
 
 function Table({page, columns, list = [], rota}) {
     const [List, setList] = useState([]);
     const [SearchList, setSearchList] = useState([]);
     const [Columns, setColumns] = useState([]);
-
+    const {autenticated, loading} = useContext(Context)
     async function handleClickDelete(e) {
         await ApiAxiosInstance[Methods['GET']]('/sanctum/csrf-cookie', {}).then(() => {
             ApiAxiosInstance[Methods['POST']](`/api/${page}/Delete/${e.target.id}`, {})
                 .then(function (response) {
-                    console.debug('Response', response.data.message)
-                    console.log(response.data)
                     if (response.data.success === true) {
                         setSearchList(SearchList.filter((item) => item.id != e.target.id));
                         setList(List.filter((item) => item.id != e.target.id));
@@ -22,40 +21,45 @@ function Table({page, columns, list = [], rota}) {
         });
     }
 
-    function handleClickSearch() {
-        let cod = document.getElementById('id').value;
-        let produto = document.getElementById('produto').value;
-        setSearchList(List.filter((item) =>
-            item.id == cod
-            || item.name == produto
-        ));
-        if (!cod && !produto) {
-            setSearchList(List);
-        }
+    function handleClickSearch(e) {
+
+        // let produto = document.getElementById('search_name').value;
+
+        Columns.map((col) => {
+            console.log(document.getElementById(`search_${col.name}`).value);
+        })
+        // setSearchList(List.filter((item) =>
+        //     // item.id == cod
+        //     // || item.name == produto
+        // ));
+        // if (!cod && !produto) {
+        //     setSearchList(List);
+        // }
     }
 
     function handleClearFilter() {
         document.getElementById('id').value = '';
-        document.getElementById('produto').value = '';
+        document.getElementById('name').value = '';
         setSearchList(List);
     }
 
 
 
     useEffect(() => {
-        ApiAxiosInstance[Methods['GET']]('/sanctum/csrf-cookie', {}).then(() => {
-            ApiAxiosInstance[Methods['POST']](`/api/${page}/BuildList`, {})
-                .then(function (response) {
-                    if (response.status === 200) {
-                        setColumns(response.data.data.columns);
-                        setSearchList(response.data.data.list);
-                        setList(response.data.data.list);
-                    } else {
-                        console.log(response);
-                    }
-                })
-        });
-
+        if (autenticated) {
+            ApiAxiosInstance[Methods['GET']]('/sanctum/csrf-cookie', {}).then(() => {
+                ApiAxiosInstance[Methods['POST']](`/api/${page}/BuildList`, {})
+                    .then(function (response) {
+                        if (response.status === 200) {
+                            setColumns(response.data.data.columns);
+                            setSearchList(response.data.data.list);
+                            setList(response.data.data.list);
+                        } else {
+                            console.log(response);
+                        }
+                    })
+            });
+        }
     }, [page]);
 
     return (
@@ -134,7 +138,9 @@ function OptionSearch({col}) {
     return (
         <tr className="align-items-center" key={col.name + "_div"}>
             <td key={col.name + "_tit"}>{col.title}</td>
-            <td key={col.name}><input type={col.type} id={col.name} className="form-control"/></td>
+            <td key={col.name}>
+                <input type={col.type} id={`search_${col.name}`} className="form-control"/>
+            </td>
         </tr>
     )
 }

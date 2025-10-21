@@ -4,7 +4,7 @@ import {useEffect} from "react";
 import {useParams} from "react-router-dom";
 
 function UsuarioForm() {
-    const categoria_id = useParams('categoria_id')
+    const usuario_id = localStorage.getItem('usuario_id')
     const [form, setForm] = useImmer({
         name: '', email: '', password: '', confirm_password: '',
     });
@@ -31,18 +31,15 @@ function UsuarioForm() {
     }
 
     useEffect(() => {
-        if (categoria_id) {
+        if (usuario_id) {
             ApiAxiosInstance[Methods['GET']]('/sanctum/csrf-cookie', {}).then(() => {
-                ApiAxiosInstance[Methods['POST']](`/api/Produto/Find/${categoria_id}`, {})
+                ApiAxiosInstance[Methods['POST']](`/api/users/Find/${usuario_id}`, {})
                     .then(function (response) {
                         if (response.status === 200) {
                             setForm(draft => {
                                 draft.name = response.data.data.name;
-                                draft.price = response.data.data.price;
-                                draft.description = response.data.data.description;
-                                draft.image_url = response.data.data.image_url;
+                                draft.email = response.data.data.email;
                             });
-                            console.log(form, response.data.data.name);
                         } else {
                             console.log(response);
                         }
@@ -57,12 +54,12 @@ function UsuarioForm() {
             <div className="row m-3">
                 <div className="col-md-6 p-1">
                     <label className="form-label">Nome Completo</label>
-                    <input type="text" className="form-control" onChange={onChangeFieldsImmer} id="name"
+                    <input type="text" className="form-control" onChange={onChangeFieldsImmer} value={form.name} id="name"
                            placeholder="nome..."/>
                 </div>
                 <div className="col-md-6 p-1">
                     <label htmlFor="exampleFormControlInput1" className="form-label">Email</label>
-                    <input type="email" className="form-control" onChange={onChangeFieldsImmer} id="email"
+                    <input type="email" className="form-control" onChange={onChangeFieldsImmer} value={form.email} id="email"
                            placeholder="name@example.com"/>
                 </div>
 
