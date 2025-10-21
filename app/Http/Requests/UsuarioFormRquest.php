@@ -29,7 +29,7 @@ class UsuarioFormRquest extends FormRequest
                 'required',
                 'string',
                 'min:8',                    // mínimo de caracteres
-//                'confirmed',                // verifica password_confirmation
+                'confirmed',                // verifica password_confirmation
             ],
             'confirm_password' => ['required_with:password', 'string'],
         ];

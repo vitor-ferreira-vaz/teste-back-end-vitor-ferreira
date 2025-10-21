@@ -205,8 +205,8 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\GitHub\\teste-back-end-vitor-ferreira\\storage\\framework/cache/data',
-        'lock_path' => 'D:\\GitHub\\teste-back-end-vitor-ferreira\\storage\\framework/cache/data',
+        'path' => 'C:\\Users\\vitor\\Desktop\\teste-back-end-vitor-ferreira\\storage\\framework/cache/data',
+        'lock_path' => 'C:\\Users\\vitor\\Desktop\\teste-back-end-vitor-ferreira\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -379,13 +379,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\GitHub\\teste-back-end-vitor-ferreira\\storage\\app',
+        'root' => 'C:\\Users\\vitor\\Desktop\\teste-back-end-vitor-ferreira\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\GitHub\\teste-back-end-vitor-ferreira\\storage\\app/public',
+        'root' => 'C:\\Users\\vitor\\Desktop\\teste-back-end-vitor-ferreira\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -405,7 +405,7 @@
     ),
     'links' => 
     array (
-      'D:\\GitHub\\teste-back-end-vitor-ferreira\\public\\storage' => 'D:\\GitHub\\teste-back-end-vitor-ferreira\\storage\\app/public',
+      'C:\\Users\\vitor\\Desktop\\teste-back-end-vitor-ferreira\\public\\storage' => 'C:\\Users\\vitor\\Desktop\\teste-back-end-vitor-ferreira\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -444,14 +444,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\GitHub\\teste-back-end-vitor-ferreira\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\vitor\\Desktop\\teste-back-end-vitor-ferreira\\storage\\logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\GitHub\\teste-back-end-vitor-ferreira\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\vitor\\Desktop\\teste-back-end-vitor-ferreira\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -516,7 +516,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'D:\\GitHub\\teste-back-end-vitor-ferreira\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\vitor\\Desktop\\teste-back-end-vitor-ferreira\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -583,7 +583,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\GitHub\\teste-back-end-vitor-ferreira\\resources\\views/vendor/mail',
+        0 => 'C:\\Users\\vitor\\Desktop\\teste-back-end-vitor-ferreira\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -695,7 +695,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\GitHub\\teste-back-end-vitor-ferreira\\storage\\framework/sessions',
+    'files' => 'C:\\Users\\vitor\\Desktop\\teste-back-end-vitor-ferreira\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -715,9 +715,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\GitHub\\teste-back-end-vitor-ferreira\\resources\\views',
+      0 => 'C:\\Users\\vitor\\Desktop\\teste-back-end-vitor-ferreira\\resources\\views',
     ),
-    'compiled' => 'D:\\GitHub\\teste-back-end-vitor-ferreira\\storage\\framework\\views',
+    'compiled' => 'C:\\Users\\vitor\\Desktop\\teste-back-end-vitor-ferreira\\storage\\framework\\views',
   ),
   'flare' => 
   array (
@@ -803,7 +803,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'D:\\GitHub\\teste-back-end-vitor-ferreira',
+    'remote_sites_path' => 'C:\\Users\\vitor\\Desktop\\teste-back-end-vitor-ferreira',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',

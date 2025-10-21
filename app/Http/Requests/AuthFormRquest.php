@@ -24,7 +24,7 @@ class AuthFormRquest extends FormRequest
     {
         return [
             'email' => ['required', 'email:rfc,dns',],
-            'password' => ['required'],
+            'password' => ['required'/*, 'current_password'*/],
         ];
     }
 
@@ -41,6 +41,7 @@ class AuthFormRquest extends FormRequest
             'email.email' => 'Forneça um e-mail válido.',
 
             'password.required' => 'O campo senha é obrigatório.',
+            'password.current_password' => 'Senha Incorreta!',
         ];
 
     }

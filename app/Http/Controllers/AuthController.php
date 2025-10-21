@@ -31,7 +31,7 @@ class AuthController extends Controller
                     ->header('Authorization', "Bearer $token->plainTextToken");
             }
         } catch (\Exception $e) {
-            return response()->json(['report_type' => 'failure', 'success' => false, 'message' => $e->getMessage()], 500);
+            return response()->json(['report_type' => 'failure', 'success' => false, 'message' => 'ERRO: E-mail ou senha incorreta!'], 500);
         }
 
     }
