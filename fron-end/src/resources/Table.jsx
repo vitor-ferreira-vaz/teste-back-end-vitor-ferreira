@@ -26,7 +26,14 @@ function Table({page, columns, list = [], rota}) {
         // let produto = document.getElementById('search_name').value;
 
         Columns.map((col) => {
+            const field = document.getElementById(`search_${col.name}`).value;
             console.log(document.getElementById(`search_${col.name}`).value);
+            if (field) {
+                // setSearchList(List.filter((item) =>
+                //     // item.id == cod
+                //     // || item.name == produto
+                // ));
+            }
         })
         // setSearchList(List.filter((item) =>
         //     // item.id == cod

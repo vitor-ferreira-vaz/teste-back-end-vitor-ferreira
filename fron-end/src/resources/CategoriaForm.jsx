@@ -2,8 +2,8 @@ import {useNavigate, useParams} from "react-router-dom";
 import {useImmer} from "use-immer";
 import {ApiAxiosInstance, Methods} from "./AxiosRequest.jsx";
 import {useEffect, useState} from "react";
-import 'use-bootstrap-select/dist/use-bootstrap-select.css';
-import UseBootstrapSelect from 'use-bootstrap-select';
+// import 'use-bootstrap-select/dist/use-bootstrap-select.css';
+// import UseBootstrapSelect from 'use-bootstrap-select';
 
 
 function CategoriaForm() {

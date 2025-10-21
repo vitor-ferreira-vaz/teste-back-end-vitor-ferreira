@@ -1,7 +1,7 @@
 import {useImmer} from "use-immer";
 import {ApiAxiosInstance, Methods} from "./AxiosRequest.jsx";
 import {useEffect} from "react";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 function UsuarioForm() {
     const usuario_id = localStorage.getItem('usuario_id')
@@ -15,13 +15,19 @@ function UsuarioForm() {
         });
     }
 
-
+    const navigate = useNavigate();
     async function handleSubmit() {
         try {
             await ApiAxiosInstance[Methods['GET']]('/sanctum/csrf-cookie', {}).then(() => {
-                ApiAxiosInstance[Methods['POST']]('/api/users/Login', form)
+                ApiAxiosInstance[Methods['POST']]('/api/users/Insert', form)
                     .then(function (response) {
-                        window.alert(response.message)
+                        ApiAxiosInstance[Methods['GET']]('/sanctum/csrf-cookie', {}).then(() => {
+                            ApiAxiosInstance[Methods['POST']]('/api/users/Login', form)
+                                .then(function () {
+                                    navigate('/LoginUsuarioForm')
+                                    window.location.reload(true);
+                                })
+                        });
                     })
             });
 

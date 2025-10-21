@@ -40,8 +40,9 @@ const menuItems = [
 function Menu () {
     const auth = ApiAxiosInstance.defaults.headers.common['Authorization'];
     const {autenticated, handleLogout} = useContext(Context);
+    console.log(auth,autenticated);
 
-    let itens = menuItems.filter(item => item.guess === false && auth != null)
+    let itens = menuItems.filter(item => (auth == null && item.guess === true) || (auth != null && item.guess === false))
     const navigate = useNavigate()
 
     // async function handleLogout() {

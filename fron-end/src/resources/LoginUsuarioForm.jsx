@@ -1,6 +1,7 @@
 import {useImmer} from "use-immer";
 import {ApiAxiosInstance, Methods} from "./AxiosRequest.jsx";
 import {Navigate, useNavigate} from "react-router-dom";
+import {useEffect} from "react";
 
 
 function LoginUsuarioForm() {
@@ -21,8 +22,13 @@ function LoginUsuarioForm() {
         try {
             await ApiAxiosInstance[Methods['GET']]('/sanctum/csrf-cookie', {}).then(() => {
                 ApiAxiosInstance[Methods['POST']]('/api/users/Login', form)
-                    .then(function () {
-                        navigate('/')
+                    .then(function (response) {
+                        if (response.status == 200) {
+                            navigate('/EditarUsuarioForm')
+                        } else {
+                            navigate('/LoginUsuarioForm')
+                        }
+                        window.location.reload(true);
                     })
             });
 
@@ -31,6 +37,7 @@ function LoginUsuarioForm() {
             console.log(error);
         }
     }
+    useEffect(() => {})
 
 
     return (
