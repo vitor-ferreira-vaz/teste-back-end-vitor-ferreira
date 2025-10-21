@@ -31,16 +31,16 @@ Route::post('/users/ResetPassword', [AuthController::class, 'ResetPassword']);
 
 /*Produto*/
 Route::post('/Produto/All', [ProdutoController::class, 'All'])/*->middleware('auth:sanctum')*/;
-Route::post('/Produto/BuildList', [ProdutoController::class, 'BuildList'])/*->middleware('auth:sanctum')*/;
-Route::post('/Produto/Find', [ProdutoController::class, 'Find'])->middleware('auth:sanctum');
-Route::post('/Produto/Insert', [ProdutoController::class, 'Insert'])->middleware('auth:sanctum');
-Route::post('/Produto/Update', [ProdutoController::class, 'Update'])/*->middleware('auth:sanctum')*/;
+Route::post('/Produto/BuildList', [ProdutoController::class, 'BuildList'])->middleware('auth:sanctum');
+Route::post('/Produto/Find/{id?}', [ProdutoController::class, 'Find'])/*->middleware('auth:sanctum')*/;
+Route::post('/Produto/Insert', [ProdutoController::class, 'Insert'])/*->middleware('auth:sanctum')*/;
+Route::post('/Produto/Update/{id?}', [ProdutoController::class, 'Update'])/*->middleware('auth:sanctum')*/;
 Route::post('/Produto/Delete/{id?}', [ProdutoController::class, 'Delete'])/*->middleware('auth:sanctum')*/;
 
 /*Categoria*/
-Route::post('/Categoria/All', [CategoriaController::class, 'All'])->middleware('auth:sanctum');
+Route::post('/Categoria/All', [CategoriaController::class, 'All'])/*->middleware('auth:sanctum')*/;
 Route::post('/Categoria/BuildList', [CategoriaController::class, 'BuildList'])/*->middleware('auth:sanctum')*/;
-Route::post('/Categoria/Find', [CategoriaController::class, 'Find'])->middleware('auth:sanctum');
-Route::post('/Categoria/Insert', [CategoriaController::class, 'Insert'])->middleware('auth:sanctum');
-Route::post('/Categoria/Update', [CategoriaController::class, 'Update'])->middleware('auth:sanctum');
+Route::post('/Categoria/Find/{id?}', [CategoriaController::class, 'Find'])/*->middleware('auth:sanctum')*/;
+Route::post('/Categoria/Insert', [CategoriaController::class, 'Insert'])/*->middleware('auth:sanctum')*/;
+Route::post('/Categoria/Update/{id?}', [CategoriaController::class, 'Update'])/*->middleware('auth:sanctum')*/;
 Route::post('/Categoria/Delete/{id?}', [CategoriaController::class, 'Delete'])/*->middleware('auth:sanctum')*/;

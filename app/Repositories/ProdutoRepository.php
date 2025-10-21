@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Contracts\Repositories\ProdutoRepositoryInterface;
-use App\Contracts\Repositories\UsuarioRepositoryInterface;
 use App\Models\Produto;
 use App\Models\ProdutoCategoria;
 use Illuminate\Http\JsonResponse;
@@ -20,7 +19,8 @@ class ProdutoRepository implements ProdutoRepositoryInterface
     {
         return response()->json([
             'success' => true,
-            'data' => Produto::find($id)
+            'data' => Produto::find($id),
+            'categoria' => ProdutoCategoria::all()
         ]);
     }
 
@@ -32,7 +32,8 @@ class ProdutoRepository implements ProdutoRepositoryInterface
         ];
         try {
             DB::beginTransaction();
-            Produto::create($data);
+            $obj = Produto::create($data);
+            ProdutoCategoria::create(['produto_id' => $obj->id, 'categoria_id' => $data['categoria']]);
             DB::commit();
         } catch (\Exception $e) {
             $return['success'] = false;
@@ -52,6 +53,8 @@ class ProdutoRepository implements ProdutoRepositoryInterface
         try {
             DB::beginTransaction();
             Produto::find($id)->update($data);
+            ProdutoCategoria::where('produto_id', $id)->delete();
+            ProdutoCategoria::create(['produto_id' => Produto::find($id)->id, 'categoria_id' => $data['categoria']]);
             DB::commit();
         } catch (\Exception $e) {
             $return['success'] = false;

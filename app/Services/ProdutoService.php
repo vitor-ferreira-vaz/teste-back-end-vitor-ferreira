@@ -18,11 +18,11 @@ class ProdutoService
     }
     public function create($request)
     {
-        return $this->repository->create($request->all());
+        return $this->repository->create($request);
     }
     public function update($id, $request)
     {
-        return $this->repository->update($id, $request->all());
+        return $this->repository->update($id, $request);
     }
     public function Delete($id)
     {

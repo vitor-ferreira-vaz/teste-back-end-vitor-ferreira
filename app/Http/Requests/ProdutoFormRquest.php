@@ -25,8 +25,8 @@ class ProdutoFormRquest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'price' => ['required', 'numeric', 'min:0'],
             'description' => ['required', 'string', 'max:1000'],
-            'category' => ['required', 'string', 'max:100'],
-            'image' => ['required', 'url', 'max:255'],
+            'categoria' => ['required', 'numeric', 'min:0'],
+            'image_url' => ['required', 'url', 'max:255'],
         ];
 
     }
@@ -47,7 +47,7 @@ class ProdutoFormRquest extends FormRequest
             'description.required' => 'A descrição é obrigatória.',
             'category.required' => 'A categoria é obrigatória.',
             'image.required' => 'A imagem é obrigatória.',
-            'image.url' => 'A imagem deve ser uma URL válida.',
+            'image_url.url' => 'A imagem deve ser uma URL válida.',
         ];
     }
 }
