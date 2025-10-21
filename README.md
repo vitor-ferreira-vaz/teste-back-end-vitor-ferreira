@@ -87,3 +87,26 @@ Utilize a seguinte API para importar os produtos: [https://fakestoreapi.com/docs
 ---
 
 Se houver dúvidas, por favor, abra uma issue nesse repositório.
+---
+---
+
+O projeto consigo no Laravel Framework 10.49.1 sendo necessário ter instalado PHP 8.1>=.
+A configuração necessária por parte do back-end consiste:
+- `composer install/update`
+- Configuração básica do .env
+ ```json
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=seu_banco
+DB_USERNAME=seu_ususario_mysql
+DB_PASSWORD=sua_senha
+ ```
+- executar o comando php artisan key:generate
+- `php artisa migrate`
+- e por `php artisan serve` para uso em desenvolvimento
+
+A configuração necessária por parte do back-end consiste:
+- executar o comando `npm install`
+- `npm run dev` para uso em desenvolvimento
+
