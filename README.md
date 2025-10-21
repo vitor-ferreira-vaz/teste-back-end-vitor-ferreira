@@ -90,7 +90,7 @@ Se houver dúvidas, por favor, abra uma issue nesse repositório.
 ---
 ---
 
-O projeto consigo no Laravel Framework 10.49.1 sendo necessário ter instalado PHP 8.1>=.
+O projeto consiste na Laravel Framework 10.49.1 sendo necessário ter instalado PHP 8.1>=.
 A configuração necessária por parte do back-end consiste:
 - `composer install/update`
 - Configuração básica do .env
